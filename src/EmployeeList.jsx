@@ -88,7 +88,7 @@ const EmployeeList = () => {
                 </button>
             </div>
           ) : (
-            <p className="mt-4 text-gray-500">All employees loaded</p>
+            <p className="mt-4 text-gray-500 flex justify-center">All employees loaded</p>
           )}
         </div>
       );

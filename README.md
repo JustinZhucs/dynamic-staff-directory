@@ -20,16 +20,16 @@
 - [X] Implement state management for employee data (using React useState)
 - [X] Set up a "Load More" feature that fetches 12 employees on each click
 - [X] Update the button to show "all loaded" when all 100 employees are fetched
-- [ ] Ensure smooth transitions and loading state when fetching new data
+- [X] Ensure smooth transitions and loading state when fetching new data
 5. Server Action and API Integration
 - [ ] Write server-side action to handle employee data fetching using use-server
 - [ ] Create client-side request logic for fetching new employees from the server
-- [ ] Test the delay and response from the fake database
+- [X] Test the delay and response from the fake database
 6. Testing & Debugging
 - [ ] Ensure server-side rendering loads the initial 20 employees correctly
-- [ ] Test the "Load More" button for loading new employees properly
-- [ ] Check for responsiveness and UI bugs
-- [ ] Test edge cases (like what happens if fewer than 12 employees are left to load)
+- [X] Test the "Load More" button for loading new employees properly
+- [X] Check for responsiveness and UI bugs
+- [X] Test edge cases (like what happens if fewer than 12 employees are left to load)
 7. Styling and UI Improvements
 - [ ] Add responsive styles for mobile and tablet views
 - [ ] Optimize the design for user experience (UX)
