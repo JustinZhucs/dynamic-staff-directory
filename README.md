@@ -4,8 +4,8 @@
 1. Set Up Project Environment
 - [X] Initialize React project with Tailwind CSS w/ Vite
 - [X] Create project structure and file organization
-- [X] Install necessary dependencies (Next.js if using, Tailwind, etc.)
-- [X] Set up mock employee database (JSON/CSV/JavaScript)
+- [X] Install necessary dependencies
+- [X] Set up mock employee database (JavaScript array)
 2. Backend/Database Setup
 - [X] Implement mock database function to retrieve employee data
 - [X] Simulate 1-second delay for API calls

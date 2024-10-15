@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import EmployeeList from './EmployeeList';
+import EmployeeList from './employeeList'
 
 
 function App() {
