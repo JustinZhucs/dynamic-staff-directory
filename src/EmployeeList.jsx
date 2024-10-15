@@ -9,15 +9,15 @@ const EmployeeList = () => {
     const [employeeColors, setEmployeeColors] = useState({});
 
     const getEmployees = async (startCursor, count) => {
-        await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call delay
-        return employees.slice(startCursor, startCursor + count); // Return 'count' employees starting from cursor
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        return employees.slice(startCursor, startCursor + count);
     };
 
     const loadMoreEmployees = async () => {
         setLoading(true);
-        const newEmployees = await getEmployees(cursor, 12); // Fetch 12 more employees
-        setDisplayedEmployees(prevEmployees => [...prevEmployees, ...newEmployees]); // Add new employees to the list
-        setCursor(prevCursor => prevCursor + 12); // Update cursor to next 12 employees
+        const newEmployees = await getEmployees(cursor, 12);
+        setDisplayedEmployees(prevEmployees => [...prevEmployees, ...newEmployees]);
+        setCursor(prevCursor => prevCursor + 12);
         setLoading(false);
 
         if (cursor + 10 >= employees.length) {
@@ -30,13 +30,13 @@ const EmployeeList = () => {
     }, []);
 
     useEffect(() => {
-        const newColors = { ...employeeColors }; // Copy the existing colors
+        const newColors = { ...employeeColors };
         displayedEmployees.forEach(employee => {
             if (!newColors[employee.id]) {
-            newColors[employee.id] = getRandomColor(); // Assign a light color only if not assigned yet
+            newColors[employee.id] = getRandomColor();
             }
         });
-        setEmployeeColors(newColors); // Update the state with new colors
+        setEmployeeColors(newColors);
     }, [displayedEmployees]);
 
     const getRandomColor = () => {
@@ -55,7 +55,7 @@ const EmployeeList = () => {
     
     return (
         <div className="p-6">
-          <h1 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-teal-500 to-green-500
+          <h1 class="text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-teal-500 to-green-500
        uppercase tracking-wider my-6 mb-12 text-center">{'{Employee List}'}</h1>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {displayedEmployees.map(employee => (

@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className="bg-sky-950">
         <EmployeeList />
       </div>
     </>
