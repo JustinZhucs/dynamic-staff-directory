@@ -6,6 +6,7 @@ const EmployeeList = () => {
     const [cursor, setCursor] = useState(0);
     const [loading, setLoading] = useState(false);
     const [allLoaded, setAllLoaded] = useState(false);
+    const [employeeColors, setEmployeeColors] = useState({});
 
     const getEmployees = async (startCursor, count) => {
         await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call delay
@@ -28,21 +29,38 @@ const EmployeeList = () => {
         loadMoreEmployees();
     }, []);
 
-    function RandomColor() {
-    const [color, setColor] = useState('#000000');
+    useEffect(() => {
+        const newColors = { ...employeeColors }; // Copy the existing colors
+        displayedEmployees.forEach(employee => {
+            if (!newColors[employee.id]) {
+            newColors[employee.id] = getRandomColor(); // Assign a light color only if not assigned yet
+            }
+        });
+        setEmployeeColors(newColors); // Update the state with new colors
+    }, [displayedEmployees]);
+
+    const getRandomColor = () => {
+        const isBlue = Math.random() > 0.5;
         
-    function generateColor() {
-    const randomColor = Math.floor(Math.random()*16777215).toString(16);
-    setColor('#' + randomColor);
-    }
-    }
+        const hue = isBlue 
+        ? Math.floor(Math.random() * 60) + 180
+        : Math.floor(Math.random() * 30);
+
+        const saturation = Math.floor(Math.random() * 20) + 30;
+        const lightness = Math.floor(Math.random() * 20) + 70;
+
+        return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+    };
+    
     
     return (
         <div className="p-6">
           <h1 className="text-3xl font-bold mb-4">Employee List</h1>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {displayedEmployees.map(employee => (
-              <div key={employee.id} className="bg-gray-100 p-4 rounded-lg shadow-md">
+              <div key={employee.id} 
+              style={{ backgroundColor: employeeColors[employee.id] }}
+                className="p-4 rounded-lg shadow-md hover:shadow-xl scale-[1] hover:scale-[1.03] transition duration-300 ease-in-out">
                 <p className="text-lg font-bold">{employee.name}</p>
                 <p className="text-sm">{employee.position}</p>
               </div>
@@ -50,16 +68,25 @@ const EmployeeList = () => {
           </div>
     
           {!allLoaded ? (
-            <button
-              onClick={() => { 
-                loadMoreEmployees(); 
-                generateColor(); 
-              }}
-              className="bg-color text-white font-semibold py-2 px-4 rounded mt-4"
-              disabled={loading}
-            >
-              {loading ? 'Loading...' : 'Load More'}
-            </button>
+            <div className="flex justify-center mt-4">
+                <button
+                    onClick={() => { 
+                        loadMoreEmployees(); 
+                        generateColor(); 
+                    }}
+                    className="bg-indigo-500 text-white font-semibold py-2 px-4 rounded mt-4"
+                    disabled={loading}
+                >
+                    {loading ? (
+                        <span className="flex items-center">
+                        <span className="animate-spin rounded-full h-5 w-5 border-t-2 border-r-2 border-white mr-2"></span>
+                            Processing...
+                        </span>
+                        ) : (
+                        'Load More'
+                    )}
+                </button>
+            </div>
           ) : (
             <p className="mt-4 text-gray-500">All employees loaded</p>
           )}
