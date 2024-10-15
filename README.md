@@ -11,15 +11,15 @@
 - [X] Simulate 1-second delay for API calls
 - [X] Create a server-side function for querying employees with pagination (using startCursor and count)
 3. Frontend Development
-- [ ] Design the employee card component using Tailwind CSS
-- [ ] Design the "Load More" button and loading spinner
-- [ ] Display the first 20 employees using server-side rendering (getServerSideProps)
+- [X] Design the employee card component using Tailwind CSS
+- [X] Design the "Load More" button and loading spinner
+- [X] Display the first 20 employees using server-side rendering (getServerSideProps)
 - [ ] Implement random background colors for each employee tag
-- [ ] Fetch more employees when "Load More" button is clicked (server action)
+- [X] Fetch more employees when "Load More" button is clicked (server action)
 4. Functionality Implementation
-- [ ] Implement state management for employee data (using React useState)
-- [ ] Set up a "Load More" feature that fetches 12 employees on each click
-- [ ] Update the button to show "all loaded" when all 100 employees are fetched
+- [X] Implement state management for employee data (using React useState)
+- [X] Set up a "Load More" feature that fetches 12 employees on each click
+- [X] Update the button to show "all loaded" when all 100 employees are fetched
 - [ ] Ensure smooth transitions and loading state when fetching new data
 5. Server Action and API Integration
 - [ ] Write server-side action to handle employee data fetching using use-server
@@ -36,12 +36,11 @@
 - [ ] Add hover effects and button states for better UI feedback
 - [ ] Implement custom fonts or additional styles if needed
 8. Deployment and Optimization
-- [ ] Set up the deployment environment (Vercel or Netlify for Next.js)
+- [X] Set up the deployment environment (Vercel or Netlify for Next.js)
 - [ ] Ensure SEO optimization for server-side rendered pages
 - [ ] Test the final version of the project in production mode
 - [ ] Deploy project and get a live URL for your resume
 9. Final Review
 - [ ] Review the project for any missing features or improvements
-- [ ] Optimize code and performance (if needed)
 - [ ] Write a brief description and create a README file for the project
 
