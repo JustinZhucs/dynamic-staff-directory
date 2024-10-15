@@ -6,7 +6,7 @@ const EmployeeList = () => {
     const [cursor, setCursor] = useState(0);
     const [loading, setLoading] = useState(false);
     const [allLoaded, setAllLoaded] = useState(false);
-    const [employeeColors, setEmployeeColors] = useState({});
+    const [employeeColors, setEmployeeColors] = useState({}); // {}: empty objects
 
     const getEmployees = async (startCursor, count) => {
         await new Promise(resolve => setTimeout(resolve, 1000));
