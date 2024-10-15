@@ -7,9 +7,9 @@
 - [X] Install necessary dependencies (Next.js if using, Tailwind, etc.)
 - [X] Set up mock employee database (JSON/CSV/JavaScript)
 2. Backend/Database Setup
-- [ ] Implement mock database function to retrieve employee data
-- [ ] Simulate 1-second delay for API calls
-- [ ] Create a server-side function for querying employees with pagination (using startCursor and count)
+- [X] Implement mock database function to retrieve employee data
+- [X] Simulate 1-second delay for API calls
+- [X] Create a server-side function for querying employees with pagination (using startCursor and count)
 3. Frontend Development
 - [ ] Design the employee card component using Tailwind CSS
 - [ ] Design the "Load More" button and loading spinner

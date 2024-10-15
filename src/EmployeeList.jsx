@@ -7,7 +7,26 @@ const EmployeeList = () => {
     const [loading, setLoading] = useState(false);
     const [AllLoaded, setAllLoaded] = useState(false);
 
-    
+    const getEmployees = async (startCursor, count) => {
+        await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call delay
+        return employees.slice(startCursor, startCursor + count); // Return 'count' employees starting from cursor
+    };
+
+    const loadMoreEmployees = async () => {
+        setLoading(true);
+        const newEmployees = await getEmployees(cursor, 12); // Fetch 12 more employees
+        setDisplayedEmployees(prevEmployees => [...prevEmployees, ...newEmployees]); // Add new employees to the list
+        setCursor(prevCursor => prevCursor + 12); // Update cursor to next 12 employees
+        setLoading(false);
+
+        if (cursor + 10 >= employees.length) {
+            setAllLoaded(true);
+          }
+    };
+
+    useEffect(() => {
+        loadMoreEmployees();
+    }, []);
 
     
   return (
